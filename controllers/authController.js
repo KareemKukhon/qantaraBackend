@@ -10,7 +10,7 @@ const { generateAccessToken, generateRefreshToken } = require('../utils/tokenUti
 // User Sign Up
 exports.userSignUp = async (req, res, next) => {
     console.log('User Sign Up', req.body);
-    const errors = validationResult(req); 
+    // const errors = validationResult(req); 
     if (!errors.isEmpty()) 
         return res.status(400).json({ errors: errors.array() }); 
 
