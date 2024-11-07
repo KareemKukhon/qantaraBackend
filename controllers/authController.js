@@ -18,7 +18,7 @@ exports.userSignUp = async (req, res, next) => {
         await user.save(); 
         const accessToken = generateAccessToken(user); 
         const refreshToken = await generateRefreshToken(user);
-        res.status(201).json({ user: new UserDTO(user), token });
+        res.status(201).json({ user: new UserDTO(user), accessToken, refreshToken });
     } 
     catch (error) { 
         next(error);
