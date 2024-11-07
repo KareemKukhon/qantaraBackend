@@ -7,13 +7,11 @@ const router = express.Router();
 
 router.post( '/signup', [ 
     body('username').not().isEmpty(), 
-    body('email').isEmail(), 
     body('password').isLength({ min: 6 }), 
     body('phoneNumber').not().isEmpty(), 
 ], authController.userSignUp );
 
 router.post( '/signin', [ 
-    body('email').isEmail(), 
     body('password').exists(), 
 ], authController.userSignIn );
 

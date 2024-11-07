@@ -35,9 +35,9 @@ exports.updateUserInfo = async (req, res, next) => {
 };
 
 exports.forgotPassword = async (req, res, next) => {
-    const { email, newPassword } = req.body;
+    const { phoneNumber, newPassword } = req.body;
     try {
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ phoneNumber });
         if (!user) return res.status(404).json({ error: 'User not found' });
 
         const salt = await bcrypt.genSalt(10);

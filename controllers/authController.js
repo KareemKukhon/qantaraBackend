@@ -31,10 +31,10 @@ exports.userSignIn = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
-    const { email, password } = req.body;
+    const { phoneNumber, password } = req.body;
     try {
-        const user = await User.findOne({ email });
-        if (!user) return res.status(404).json({ error: 'Invalid email Credentials' });
+        const user = await User.findOne({ phoneNumber });
+        if (!user) return res.status(404).json({ error: 'Invalid phoneNumber Credentials' });
         console.log(user.password);
         console.log(password);
 
