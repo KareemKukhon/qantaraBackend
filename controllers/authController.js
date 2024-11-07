@@ -11,8 +11,8 @@ const { generateAccessToken, generateRefreshToken } = require('../utils/tokenUti
 exports.userSignUp = async (req, res, next) => {
     console.log('User Sign Up', req.body);
     // const errors = validationResult(req); 
-    if (!errors.isEmpty()) 
-        return res.status(400).json({ errors: errors.array() }); 
+    // if (!errors.isEmpty()) 
+    //     return res.status(400).json({ errors: errors.array() }); 
 
     try {
         const user = new User(req.body); 
@@ -30,8 +30,8 @@ exports.userSignUp = async (req, res, next) => {
 // User Sign In
 exports.userSignIn = async (req, res, next) => {
     console.log('User Sign In', req.body);
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
     const { phoneNumber, password } = req.body;
     try {
