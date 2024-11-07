@@ -9,6 +9,7 @@ const RefreshToken = require('../models/refreshToken');
 const { generateAccessToken, generateRefreshToken } = require('../utils/tokenUtils');
 // User Sign Up
 exports.userSignUp = async (req, res, next) => {
+    console.log('User Sign Up', req.body);
     const errors = validationResult(req); 
     if (!errors.isEmpty()) 
         return res.status(400).json({ errors: errors.array() }); 
@@ -28,6 +29,7 @@ exports.userSignUp = async (req, res, next) => {
 
 // User Sign In
 exports.userSignIn = async (req, res, next) => {
+    console.log('User Sign In', req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
