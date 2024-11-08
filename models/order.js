@@ -8,10 +8,11 @@ const orderSchema = new mongoose.Schema({
     },
     orderPrice: { type: Number, }, // سعر الطلب
     orderDate: { type: Date, default: Date.now }, // تاريخ الطلب
-    productId: { 
+    productName: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Product', 
     }, // id القطعه
+    productColor: { type: String },
     userId: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 
