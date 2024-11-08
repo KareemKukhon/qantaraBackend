@@ -38,3 +38,26 @@ exports.getOrdersByCarCompanies = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+
+  exports.getOrdersByCarCompanies = async (req, res) => {
+    const { carCompanies } = req.body; // Expecting car companies list in request body
+  
+    try {
+      const orders = await orderService.getOrdersByCarCompanies(carCompanies);
+      res.status(200).json({ orders });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+
+  exports.getOrdersByUserId = async (req, res) => {
+    const userId = req.params.userId; // Extract userId from URL parameters
+
+    try {
+        const orders = await Order.find({ userId }).populate('carId', 'carType carModel logoImage'); // Populate car details if needed
+        res.status(200).json({ message: 'Orders retrieved successfully', orders });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to retrieve orders', error });
+    }
+};

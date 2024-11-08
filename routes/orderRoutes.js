@@ -7,4 +7,5 @@ const router = express.Router();
 // router.post('/add-order', auth, validateOrder, orderController.addOrder);
 router.get('/byBrand', orderController.getOrdersByCarCompanies);
 router.post('/addOrder', orderController.addOrder);
+router.get('/:userId', orderController.getOrdersByUserId);
 module.exports = router;
