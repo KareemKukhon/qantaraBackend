@@ -6,13 +6,14 @@ const orderService = require('../services/orderService');
 
 // Add Order
 exports.addOrder = async (req, res, next) => {
-  const { carId, productName, productColor, notes } = req.body;
+  const { carId, productName, productColor, notes, userId } = req.body;
 
   try {
       const newOrder = new Order({
           carId,
           productName,
           productColor,
+          userId,
           notes,
       });
 
@@ -52,6 +53,7 @@ exports.getOrdersByCarCompanies = async (req, res) => {
 
   exports.getOrdersByUserId = async (req, res) => {
     const userId = req.params.userId; // Extract userId from URL parameters
+    console.log(userId);
 
     try {
         const orders = await Order.find({ userId }).populate('carId', 'carType carModel logoImage'); // Populate car details if needed

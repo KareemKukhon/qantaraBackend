@@ -15,6 +15,7 @@ const orderSchema = new mongoose.Schema({
     userId: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 
+        required: true,  // لا يمكن أن يكون فارغ��ا
     }, // user id
     carId: { 
         type: mongoose.Schema.Types.ObjectId, 
