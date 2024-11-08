@@ -9,7 +9,7 @@ exports.addOrder = async (req, res, next) => {
   const { carId, productName, productColor, notes } = req.body;
 
   try {
-      const newOrder = new addOrder({
+      const newOrder = new Order({
           carId,
           productName,
           productColor,
