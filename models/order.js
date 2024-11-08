@@ -7,7 +7,7 @@ const orderSchema = new mongoose.Schema({
         default: 'pending',
         required: true 
     },
-    orderPrice: { type: Number, required: true }, // سعر الطلب
+    orderPrice: { type: Number, }, // سعر الطلب
     orderDate: { type: Date, default: Date.now }, // تاريخ الطلب
     productId: { 
         type: mongoose.Schema.Types.ObjectId, 

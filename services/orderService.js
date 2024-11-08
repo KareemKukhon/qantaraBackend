@@ -23,3 +23,25 @@ const getOrdersByCarCompanies = async (carCompanies) => {
 module.exports = {
   getOrdersByCarCompanies,
 };
+
+
+const addOrder = require('../Dtos/addOrder');
+
+exports.addOrder = async (req, res) => {
+    const { carId, productName, productColor, notes } = req.body;
+
+    try {
+        const newOrder = new addOrder({
+            carId,
+            productName,
+            productColor,
+            notes,
+        });
+
+        const savedOrder = await newOrder.save();
+        return res.status(201).json({ message: 'Order added successfully', order: savedOrder });
+    } catch (error) {
+        console.error('Error adding order:', error);
+        return res.status(500).json({ message: 'Failed to add order', error: error.message });
+    }
+};
