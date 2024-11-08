@@ -5,5 +5,6 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 
 router.post('/addCar', auth, carController.addCar);
+router.get('/user/:userId', carController.getCarsByUserId);
 
 module.exports = router;

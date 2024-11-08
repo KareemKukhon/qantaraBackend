@@ -45,7 +45,7 @@ exports.userSignIn = async (req, res, next) => {
 
         const accessToken = generateAccessToken(user); 
         const refreshToken = await generateRefreshToken(user); 
-        res.status(200).json({ accessToken, refreshToken });
+        res.status(200).json({ accessToken, refreshToken, user });
     } catch (error) {
         next(error);
     }

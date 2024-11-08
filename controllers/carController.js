@@ -29,3 +29,23 @@ exports.addCar = async (req, res, next) => {
         next(error);
     }
 };
+
+
+// Function to get cars by userId
+exports.getCarsByUserId = async (req, res, next) => {
+    try {
+        const { userId } = req.params;
+
+        // Fetch cars based on userId
+        const cars = await Car.find({ userId }).exec();
+
+        // Check if any cars found
+        if (!cars.length) {
+            return res.status(404).json({ message: 'No cars found for this user' });
+        }
+
+        res.status(200).json({ cars });
+    } catch (error) {
+        next(error);
+    }
+};
