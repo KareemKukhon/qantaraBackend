@@ -4,6 +4,6 @@ const { validateCar } = require('../middlewares/carValidator');
 const router = express.Router();
 const auth = require('../middlewares/auth');
 
-router.post('/add-car', auth, validateCar, carController.addCar);
+router.post('/addCar', auth, carController.addCar);
 
 module.exports = router;
