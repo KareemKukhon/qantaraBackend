@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    productNameOrNumber: { type: String, required: true, trim: true }, // product name or number
     productColor: { type: String, trim: true }, // product color
     productImage: { type: String }, // URL or path to product image
     productDetails: { type: String, trim: true }, // product details
@@ -10,6 +9,11 @@ const productSchema = new mongoose.Schema({
         type: String, 
         enum: ['new', 'used'], // Product status (new or used)
         required: true 
+    },
+    orderId: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Order',
+        required: true // Ensures every product is associated with an order
     }
 }, { timestamps: true });
 
