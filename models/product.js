@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
     productColor: { type: String, trim: true }, // product color
     productImage: { type: String }, // URL or path to product image
+    productPrice: { type: String },
     productDetails: { type: String, trim: true }, // product details
     warranty: { type: String, trim: true }, // الضمان على القطعه, e.g., "1 year"
     productStatus: { 

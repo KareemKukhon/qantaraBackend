@@ -36,6 +36,7 @@ exports.addProduct = async (req, res) => {
             productDetails,
             warranty,
             productStatus,
+            productPrice,
             orderId
         });
         await newProduct.save();
